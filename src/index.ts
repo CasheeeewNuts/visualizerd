@@ -18,7 +18,7 @@ function main() {
                 .collection<string>('results')
                 .insertOne(resultObject)
     }).then(insertResult => {
-        if (insertResult.result.ok != INSERT_COMPLETED) throw new Error('failed to insert result to mongoDB')
+        if (insertResult.result.ok !== INSERT_COMPLETED) throw new Error('failed to insert result to mongoDB')
 
         console.log('test completed!')
     }).catch((err: Error) => {
