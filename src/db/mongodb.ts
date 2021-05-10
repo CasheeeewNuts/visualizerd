@@ -19,7 +19,7 @@ export {mongoClient, INSERT_COMPLETED}
 
 
 function buildConnectionURI(host: string, port: string, userName?: string, password?: string) {
-    if (userName == null || password == null) {
+    if (userName == null || userName.length === 0 || password == null || password.length === 0) {
         return `mongodb://${host}:${port}`
     }
 
