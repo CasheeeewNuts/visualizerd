@@ -1,4 +1,4 @@
-import {speedTest} from "./command/speed-test";
+import {speedTest} from "./app/command/speed-test";
 import {mongoClient, INSERT_COMPLETED} from "./db/mongodb";
 
 
