@@ -5,8 +5,11 @@
   "author": "CasheeeewNuts",
   "license": "MIT",
   "dependencies": {
+    "@types/node-cron": "^2.0.3",
     "dotenv": "^8.5.1",
-    "mongodb": "^3.6.6"
+    "forever": "^3.0.4",
+    "mongodb": "^3.6.6",
+    "node-cron": "^3.0.0"
   },
   "devDependencies": {
     "@types/mongodb": "^3.6.12",
