@@ -2,12 +2,10 @@ import {speedTest} from "./app/command/speed-test";
 import {mongoClient, INSERT_COMPLETED} from "./db/mongodb";
 
 
-main()
+export {main}
 
 
 function main() {
-    let onError: boolean = false
-
     Promise.all([
         speedTest(),
         mongoClient.connect()
@@ -22,20 +20,6 @@ function main() {
 
         console.log('test completed!')
     }).catch((err: Error) => {
-        onError = true
-
         console.error(err.message)
-    }).finally(() => {
-        if (!mongoClient.isConnected()) {
-            process.exit(1)
-        }
-
-        mongoClient.close().finally(() => {
-            console.log('connection closed!')
-
-            if (onError) process.exit(1)
-
-            process.exit(0)
-        })
-    })
+    }).finally(mongoClient.close)
 }
