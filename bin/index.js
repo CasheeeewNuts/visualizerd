@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 
 const cron = require('node-cron')
-const {main} = require("../lib/main")
+const {fork} = require('child_process')
 
-cron.schedule('*/1 * * * *', main)
+cron.schedule('*/1 * * * *', () => {
+  const childProcess = fork(`${__dirname}/thread.js`)
+
+  childProcess.send('execute')
+})
