@@ -4,6 +4,10 @@
   "main": "lib/index.js",
   "author": "CasheeeewNuts",
   "license": "MIT",
+  "bin": {
+    "visualizerd": "bin/index.js",
+    "visualizerd-init": "bin/init.js"
+  },
   "dependencies": {
     "@types/node-cron": "^2.0.3",
     "dotenv": "^8.5.1",
