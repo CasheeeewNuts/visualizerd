@@ -12,10 +12,13 @@ const clientOptions: MongoClientOptions = {
 if (DB_HOST == null || DB_PORT == null) throw new Error()
 const connectionURI = buildConnectionURI(DB_HOST, DB_PORT, DB_USER_NAME, DB_PASSWORD)
 
-const mongoClient: MongoClient = new MongoClient(connectionURI, clientOptions)
+const mongoClient = new MongoClient(connectionURI, clientOptions)
+function createClient() {
+    return new MongoClient(connectionURI, clientOptions)
+}
 
 
-export {mongoClient, INSERT_COMPLETED}
+export {createClient, mongoClient, INSERT_COMPLETED}
 
 
 function buildConnectionURI(host: string, port: string, userName?: string, password?: string) {
