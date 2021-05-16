@@ -1,9 +1,9 @@
 import {Repository} from "../repository";
 import {MongoClient} from "mongodb";
-import {createClient, INSERT_COMPLETED} from "../../../db/mongodb";
+import {createClient, INSERT_COMPLETED} from "../../../../db/mongodb";
 
 
-class SpeedTestResultRepository implements Repository<any> {
+export class SpeedTestResultRepository<T> implements Repository<T> {
     private readonly client: MongoClient;
 
 
@@ -19,7 +19,7 @@ class SpeedTestResultRepository implements Repository<any> {
     }
 
 
-    async store(result: any): Promise<boolean> {
+    async store(result: T): Promise<boolean> {
         const insertResult = await this.client.db('speedtest')
                 .collection('results')
                 .insertOne(result)
@@ -34,6 +34,3 @@ class SpeedTestResultRepository implements Repository<any> {
         await this.client.close()
     }
 }
-
-
-export {SpeedTestResultRepository}

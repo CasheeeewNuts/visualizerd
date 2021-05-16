@@ -1,6 +1,6 @@
 import {SpeedTest} from "./app/command/speed-test";
-import {Repository} from "./app/infra/repository";
-import {SpeedTestResultRepository} from "./app/infra/speed-test-result/speed-test-result-repository";
+import {Repository} from "./app/infra/repository/repository";
+import {SpeedTestResultRepository} from "./app/infra/repository/speed-test-result/speed-test-result-repository";
 
 
 export function main() {
