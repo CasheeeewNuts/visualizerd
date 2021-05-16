@@ -4,8 +4,8 @@ import {SpeedTestResultRepository} from "./app/infra/repository/speed-test-resul
 
 
 export function main() {
-    const speedTest: SpeedTest<number> = new SpeedTest<number>();
-    const repository: Repository<any> = new SpeedTestResultRepository();
+    const speedTest: SpeedTest<any> = new SpeedTest<any>();
+    const repository: Repository<string> = new SpeedTestResultRepository<string>();
 
     Promise.all([
         speedTest.exec(JSON.parse),
