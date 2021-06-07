@@ -1,10 +1,10 @@
 type Platforms<T extends NodeJS.Platform> = readonly Extract<NodeJS.Platform, T>[]
-type SupportingPlatforms = Platforms<'linux' | 'darwin'>
+type SupportingPlatforms = Platforms<'linux'>
 
 
 export class Platform {
     // static fields
-    public static readonly supporting: SupportingPlatforms = ['linux', 'darwin']
+    public static readonly supporting: SupportingPlatforms = ['linux']
 
 
     // instance field

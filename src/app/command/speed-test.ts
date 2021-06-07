@@ -1,6 +1,6 @@
 import {exec} from "child_process";
-import {Platform} from "../console/platform";
-import {NotSupportingOSError} from "../error/NotSupportingOSError";
+import {Platform} from "@app/console/platform";
+import {NotSupportingOSError} from "@app/error/NotSupportingOSError";
 
 
 type Command = {
@@ -11,18 +11,20 @@ type Command = {
 export class SpeedTest<T> {
     private static command: Command = {
         linux: '/usr/bin/env speedtest -f json',
-        darwin: '/usr/bin/env speedtest --json'
     } as const
 
+    private platform: Platform;
+    public constructor(platform: Platform) {
+        this.platform = platform
+    }
 
     public exec(): Promise<string>
     public exec(pipe: (input: string) => T): Promise<T>
     public exec(pipe?: any): Promise<any> {
         return new Promise<any>((resolve, reject) => {
-            const platform = new Platform(process.platform)
-            if (!platform.isSupported()) throw new NotSupportingOSError
+            if (!this.platform.isSupported()) throw new NotSupportingOSError
 
-            exec(SpeedTest.command[platform.platform as 'linux' | 'darwin'], (err, stdout, stderr) => {
+            exec(SpeedTest.command[this.platform.platform as 'linux'], (err, stdout, stderr) => {
                 if (err) reject(new Error(stderr))
 
                 return pipe != null

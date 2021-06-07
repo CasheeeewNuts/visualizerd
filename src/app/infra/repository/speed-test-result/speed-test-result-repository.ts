@@ -1,6 +1,6 @@
-import {Repository} from "../repository";
 import {MongoClient} from "mongodb";
-import {createClient, INSERT_COMPLETED} from "../../../../db/mongodb";
+import {Repository} from "@app/infra/repository/repository";
+import {createClient, INSERT_COMPLETED} from "@db/mongodb";
 
 
 export class SpeedTestResultRepository<T> implements Repository<T> {

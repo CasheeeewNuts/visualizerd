@@ -1,4 +1,4 @@
-class NotSupportingOSError extends Error{
+export class NotSupportingOSError extends Error{
     constructor() {
         super()
 
@@ -6,5 +6,3 @@ class NotSupportingOSError extends Error{
         this.message = 'this device is not supporting OS'
     }
 }
-
-export {NotSupportingOSError}
