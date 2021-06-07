@@ -1,3 +1,4 @@
+import 'module-alias/register'
 import {SpeedTest} from "@app/command/speed-test";
 import {Repository} from "@app/infra/repository/repository";
 import {SpeedTestResultRepository} from "@app/infra/repository/speed-test-result/speed-test-result-repository";
