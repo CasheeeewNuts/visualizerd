@@ -4,4 +4,5 @@ interface StoredSpeedtestResult {
     upload: number,
     isp: string,
     macAddress: string,
+    timestamp: string
 }

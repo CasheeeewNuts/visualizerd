@@ -32,6 +32,7 @@ function resultToStoredSpeedTestResult(stdout: string): StoredSpeedtestResult {
         download: result.download.bandwidth,
         upload: result.upload.bandwidth,
         isp: result.isp,
-        macAddress: result.interface.macAddr
+        macAddress: result.interface.macAddr,
+        timestamp: result.timestamp
     }
 }
