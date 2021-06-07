@@ -30,7 +30,7 @@ function resultToStoredSpeedTestResult(stdout: string): StoredSpeedtestResult {
     return {
         ping: result.ping.latency,
         download: result.download.bandwidth,
-        upload: result.download.bandwidth,
+        upload: result.upload.bandwidth,
         isp: result.isp,
         macAddress: result.interface.macAddr
     }
