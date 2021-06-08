@@ -29,8 +29,8 @@ function resultToStoredSpeedTestResult(stdout: string): StoredSpeedtestResult {
 
     return {
         ping: result.ping.latency,
-        download: result.download.bandwidth,
-        upload: result.upload.bandwidth,
+        download: result.download.bytes,
+        upload: result.upload.bytes,
         isp: result.isp,
         macAddress: result.interface.macAddr,
         timestamp: result.timestamp
